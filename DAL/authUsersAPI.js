@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const authUsersURL = 'http://localhost:8001/authUsers';
+const authUsersURL = `${process.env.USERS_BASE_URL}/authUsers`;
+// 'http://localhost:8001/authUsers';
 
 const getAllAuthUsers = async () => {
   try {

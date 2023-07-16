@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const registerURL = 'http://localhost:8001/authUsers/register';
+const registerURL =`${process.env.USERS_BASE_URL}/authUsers/register`;
+  // 'http://localhost:8001/authUsers/register';
 
 const register = async ({ username, password, firstName, lastName }) => {
   try {

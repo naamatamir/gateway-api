@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const permissionsURL = 'http://localhost:8001/permissions';
+const permissionsURL =`${process.env.USERS_BASE_URL}/permissions`;
+  // 'http://localhost:8001/permissions';
 
 const getAllPermissions = async () => {
     try {

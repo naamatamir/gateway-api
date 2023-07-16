@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const subscriptionsURL = 'http://localhost:8000/subscriptions';
+const subscriptionsURL =`${process.env.CINEMA_BASE_URL}/authUsers/subscriptions`;
+  // 'http://localhost:8000/subscriptions';
 
 const getAllSubscriptions = async () => {
   try {

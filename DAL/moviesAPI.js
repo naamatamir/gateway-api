@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const moviesURL = 'http://localhost:8000/movies';
+const moviesURL = `${process.env.CINEMA_BASE_URL}/movies`;
+  // 'http://localhost:8000/movies';
 
 const getAllMovies = async () => {
   try {

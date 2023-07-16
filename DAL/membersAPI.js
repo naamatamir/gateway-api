@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const membersURL = 'http://localhost:8000/members';
+const membersURL = `${process.env.CINEMA_BASE_URL}/members`;
+  // 'http://localhost:8000/members';
 
 const getAllMembers = async () => {
   try {
