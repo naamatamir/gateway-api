@@ -1,11 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-// try {
-//   require('dotenv').config();
-// } catch (error) {
-//   console.error('Error loading .env file:', error);
-// }
 
 const membersRouter = require('./Routers/membersRouter');
 const moviesRouter = require('./Routers/moviesRouter');
@@ -16,7 +11,7 @@ const registerRouter = require('./Routers/registerRouter');
 const permissionsRouter = require('./Routers/permissionsRouter');
 
 const app = express();
-const port = 8002;
+const port = process.env.PORT || 8002;
 
 app.use(cors());
 app.use(express.json());
