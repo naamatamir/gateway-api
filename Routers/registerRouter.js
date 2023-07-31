@@ -2,7 +2,6 @@ const express = require('express');
 const register = require('../DAL/registerAPI');
 
 const registerRouter = express.Router();
-a;
 
 //Entry Point 'http://localhost:8002/authUsers/register'
 
