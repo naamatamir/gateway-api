@@ -1,11 +1,25 @@
 const axios = require('axios');
 
-const registerURL =`${process.env.USERS_BASE_URL}/authUsers/register`;
-  // 'http://localhost:8001/authUsers/register';
+const registerURL = `${process.env.USERS_BASE_URL}/authUsers/register`;
+// 'http://localhost:8001/authUsers/register';
 
-const register = async ({ username, password, firstName, lastName , isAdmin, permissions}) => {
+const register = async ({
+  username,
+  password,
+  firstName,
+  lastName,
+  // isAdmin = true,
+  // permissions = [],
+}) => {
   try {
-    const response = await axios.post(registerURL, { username, password , firstName, lastName, isAdmin, permissions});
+    const response = await axios.post(registerURL, {
+      username,
+      password,
+      firstName,
+      lastName,
+      // isAdmin,
+      // permissions,
+    });
     return response.data;
   } catch (error) {
     console.error('Failed to register', error);
@@ -13,4 +27,4 @@ const register = async ({ username, password, firstName, lastName , isAdmin, per
   }
 };
 
-module.exports =  register ;
+module.exports = register;
