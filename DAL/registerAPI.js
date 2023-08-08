@@ -8,8 +8,6 @@ const register = async ({
   password,
   firstName,
   lastName,
-  // isAdmin = true,
-  // permissions = [],
 }) => {
   try {
     const response = await axios.post(registerURL, {
@@ -17,13 +15,21 @@ const register = async ({
       password,
       firstName,
       lastName,
-      // isAdmin,
-      // permissions,
     });
     return response.data;
   } catch (error) {
-    console.error('Failed to register', error);
-    throw error;
+    console.error(
+      'Failed to register',
+      error.response ? error.response.data : error
+    );
+    if (error.response && error.response.data) {
+      const errorData = error.response.data.error;
+      const err = new Error(errorData.message);
+      err.statusCode = errorData.statusCode;
+      throw err;
+    } else {
+      throw error;
+    }
   }
 };
 

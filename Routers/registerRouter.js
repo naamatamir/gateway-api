@@ -12,8 +12,6 @@ registerRouter.route('/').post(async (req, res) => {
       password,
       firstName,
       lastName,
-      // isAdmin = true,
-      // permissions = [],
     } = req.body;
 
     const data = await register({
@@ -21,21 +19,17 @@ registerRouter.route('/').post(async (req, res) => {
       password,
       firstName,
       lastName,
-      // isAdmin,
-      // permissions,
     });
     res.send(data);
   } catch (error) {
     console.error(
-      `Error occurred during gateway registration: ${error.message}`
+      error.message
     );
     res.status(500).json({
       error: {
-        message:
-          'An error occurred during gateway registration. Please try again later.',
+        message: error.message,
       },
     });
-    // res.status(500).json({ error: error.message });
   }
 });
 
