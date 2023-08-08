@@ -18,18 +18,8 @@ const register = async ({
     });
     return response.data;
   } catch (error) {
-    console.error(
-      'Failed to register',
-      error.response ? error.response.data : error
-    );
-    if (error.response && error.response.data) {
-      const errorData = error.response.data.error;
-      const err = new Error(errorData.message);
-      err.statusCode = errorData.statusCode;
-      throw err;
-    } else {
+    console.error('Failed to register', error);
       throw error;
-    }
   }
 };
 

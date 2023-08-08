@@ -23,11 +23,12 @@ registerRouter.route('/').post(async (req, res) => {
     res.send(data);
   } catch (error) {
     console.error(
-      error.message
+      `Error occurred during gateway registration: ${error.message}`
     );
     res.status(500).json({
       error: {
-        message: error.message,
+        message:
+          'An error occurred during gateway registration. Please try again later.',
       },
     });
   }
