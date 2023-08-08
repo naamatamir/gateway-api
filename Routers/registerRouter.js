@@ -11,7 +11,7 @@ registerRouter.route('/').post(async (req, res) => {
       username,
       password,
       firstName,
-      lastName,
+      lastName, 
     } = req.body;
 
     const data = await register({
